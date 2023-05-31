@@ -1,0 +1,25 @@
+<h1 class="text-center pb-5">Generate your own image with AI</h1>
+
+<form action="/" method="post">
+    <input type="text" class="form-control mb-3" placeholder="enter img description" required name="prompt" />
+    <select class="form-control mb-3" name="size" placeholder="chose size of image">
+        <option value="256x256">Small</option>
+        <option value="512x512">Medium</option>
+        <option value="1024x1024">Large</option>
+    </select>
+    <select type="number" class="form-control mb-3" name="number">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <button type="submit" class="btn btn-primary mt-3">Generate</button>
+</form>
+
+{{#if images}}
+<div class="row mt-5">
+    {{#each images}}
+    <img src="{{ this.url }}" alt="image" class="img-fluid rounded mb-2">
+    {{/each}}
+</div>
+{{/if}}
